@@ -25,25 +25,25 @@ for _, row in bp_df.iterrows():
 
     sql = """
     INSERT INTO bronze_bp (
-        bp_id,
+
         user_id,
         systolic,
         diastolic,
-        pulse,
-        measured_at,
-        notes
+        measured_at
+
     )
-    VALUES (%s, %s, %s, %s, %s, %s, %s)
+    VALUES (%s, %s, %s, %s)
     """
 
     values = (
-        int(row["bp_id"]),
+
         int(row["user_id"]),
+
         int(row["systolic"]),
+
         int(row["diastolic"]),
-        int(row["pulse"]),
-        row["measured_at"],
-        row["notes"]
+
+        row["measured_at"]
     )
 
     cursor.execute(sql, values)

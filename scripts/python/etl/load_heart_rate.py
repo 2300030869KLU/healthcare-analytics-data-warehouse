@@ -25,23 +25,22 @@ for _, row in heart_rate_df.iterrows():
 
     sql = """
     INSERT INTO bronze_heart_rate (
-        hr_id,
+
         user_id,
         heart_rate,
-        measured_at,
-        notes,
-        unit
+        measured_at
+
     )
-    VALUES (%s, %s, %s, %s, %s, %s)
+    VALUES (%s, %s, %s)
     """
 
     values = (
-        int(row["hr_id"]),
+
         int(row["user_id"]),
+
         int(row["heart_rate"]),
-        row["measured_at"],
-        row["notes"],
-        row["unit"]
+
+        row["measured_at"]
     )
 
     cursor.execute(sql, values)

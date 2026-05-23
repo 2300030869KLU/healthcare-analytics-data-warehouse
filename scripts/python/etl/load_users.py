@@ -29,9 +29,13 @@ for _, row in users_df.iterrows():
         username,
         email,
         date_of_birth,
-        location
+        location,
+        state,
+        gender,
+        age,
+        age_group
     )
-    VALUES (%s, %s, %s, %s, %s)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
 
     values = (
@@ -39,7 +43,11 @@ for _, row in users_df.iterrows():
         row["username"],
         row["email"],
         row["date_of_birth"],
-        row["location"]
+        row["location"],
+        row["state"],
+        row["gender"],
+        int(row["age"]),
+        row["age_group"]
     )
 
     cursor.execute(sql, values)
