@@ -18,7 +18,7 @@ The project follows a Medallion Architecture approach using:
 
 The main objective of this project is to transform transactional healthcare data into meaningful analytical insights using Data Warehouse concepts.
 
-The warehouse enables:
+The warehouse supports:
 
 - Age-wise healthcare analysis
 - City-wise risk analytics
@@ -119,6 +119,7 @@ silver_health_readings
 ```
 
 Purpose:
+
 - Data cleaning
 - Standardization
 - Health record integration
@@ -254,6 +255,113 @@ Analytics queries
 
 ---
 
+# Synthetic Healthcare Data Generation
+
+To simulate realistic healthcare monitoring behavior, synthetic healthcare datasets were generated using Python.
+
+The datasets generated include:
+
+```text
+users.csv
+heart_rate.csv
+bp.csv
+glucose.csv
+oxygen.csv
+temperature.csv
+```
+
+---
+
+# Healthcare Data Characteristics
+
+The generated healthcare data follows realistic healthcare monitoring behavior:
+
+- Patients do not always measure all parameters at the same timestamp
+- Sparse healthcare readings are supported
+- Missing parameter values are handled using NULL values
+
+---
+
+# ETL Workflow
+
+## Extract Phase
+
+Synthetic healthcare CSV datasets are generated using Python.
+
+## Bronze Layer
+
+Raw healthcare records are loaded into:
+
+```text
+bronze_users
+bronze_heart_rate
+bronze_bp
+bronze_glucose
+bronze_oxygen
+bronze_temperature
+```
+
+The Bronze layer preserves raw healthcare data with minimal transformation.
+
+## Silver Layer
+
+The Silver layer integrates healthcare parameters into unified healthcare snapshots.
+
+Features:
+
+- Timestamp-based record merging
+- Sparse healthcare data handling
+- NULL support for missing parameters
+- Data standardization
+- Risk categorization
+
+## Gold Layer
+
+The Gold layer contains analytical Star Schema tables used for OLAP analytics and healthcare reporting.
+
+---
+
+# Modular ETL Design
+
+The ETL pipeline follows a modular Python architecture.
+
+## Data Generators
+
+```text
+generate_users.py
+generate_heart_rate.py
+generate_bp.py
+generate_glucose.py
+generate_oxygen.py
+generate_temperature.py
+```
+
+## ETL Loaders
+
+```text
+load_users.py
+load_heart_rate.py
+load_bp.py
+load_glucose.py
+load_oxygen.py
+load_temperature.py
+```
+
+## Shared Infrastructure
+
+```text
+db_connection.py
+```
+
+This modular structure improves:
+
+- scalability
+- maintainability
+- ETL readability
+- reusable database connectivity
+
+---
+
 # Analytics Supported
 
 The warehouse supports:
@@ -279,6 +387,19 @@ The warehouse supports:
 - Healthcare Analytics
 - SQL Aggregation
 - Population Health Analysis
+
+---
+
+# Project Status
+
+Current implementation includes:
+
+- Synthetic healthcare data generation
+- Bronze layer ingestion
+- Modular ETL pipeline
+- Silver layer architecture
+- Gold layer star schema design
+- Healthcare analytics warehouse modeling
 
 ---
 
