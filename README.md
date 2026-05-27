@@ -232,35 +232,59 @@ The warehouse analyzes:
 healthcare-analytics-data-warehouse/
 │
 ├── datasets/
-│   ├── users.csv
+│   ├── bp.csv
+│   ├── glucose.csv
 │   ├── health_sessions.csv
 │   ├── heart_rate.csv
 │   ├── oxygen.csv
 │   ├── temperature.csv
-│   ├── glucose.csv
-│   └── bp.csv
+│   └── users.csv
+│
+├── diagrams/
+│   ├── healthcare_data_flow_architecture.png
+│   ├── medallion_architecture.png
+│   └── star_schema_diagram.png
+│
+├── powerBI/
+│   └── healthcare_dashboard.png
 │
 ├── scripts/
-│   └── python/
-│       ├── generate_users.py
-│       ├── generate_health_sessions.py
-│       ├── generate_heart_rate.py
-│       ├── generate_oxygen.py
-│       ├── generate_temperature.py
-│       ├── generate_glucose.py
-│       ├── generate_bp.py
-│       │
-│       ├── db_connection.py
-│       │
-│       └── etl/
-│           ├── load_users.py
-│           ├── load_heart_rate.py
-│           ├── load_oxygen.py
-│           ├── load_temperature.py
-│           ├── load_glucose.py
-│           ├── load_bp.py
-│           ├── transform_to_silver.py
-│           └── load_gold_layer.sql
+│   │
+│   ├── bronze/
+│   │   └── Bronze_Tables_Creation.sql
+│   │
+│   ├── gold/
+│   │   ├── gold_views_creation.sql
+│   │   └── olap_queries.sql
+│   │
+│   ├── python/
+│   │   ├── etl/
+│   │   │   ├── __pycache__/
+│   │   │   ├── db_connection.py
+│   │   │   ├── load_bp.py
+│   │   │   ├── load_glucose.py
+│   │   │   ├── load_heart_rate.py
+│   │   │   ├── load_oxygen.py
+│   │   │   ├── load_temperature.py
+│   │   │   ├── load_users.py
+│   │   │   └── transform_to_silver.py
+│   │   │
+│   │   ├── generate_bp.py
+│   │   ├── generate_glucose.py
+│   │   ├── generate_health_sessions.py
+│   │   ├── generate_heart_rate.py
+│   │   ├── generate_oxygen.py
+│   │   ├── generate_temperature.py
+│   │   ├── generate_users.py
+│   │   └── requirements.txt
+│   │
+│   └── silver/
+│       ├── Load_data_to_silver.sql
+│       └── Silver_Table_Creation.sql
+│
+├── README.md
+│
+└── requirements.txt
 ```
 
 ---
